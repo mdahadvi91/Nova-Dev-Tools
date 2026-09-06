@@ -1,13 +1,6 @@
 export type ToolCategory =
-  | 'popular'
-  | 'image'
-  | 'pdf'
-  | 'qr'
-  | 'career'
   | 'utilities'
-  | 'design'
-  | 'calculators'
-  | 'ai';
+  | 'design';
 
 export type Language = 'en' | 'bn' | 'ar';
 
@@ -36,58 +29,4 @@ export interface BreadcrumbItem {
 export interface FaqItem {
   question: string;
   answer: string;
-}
-
-export type QrOverlayPosition =
-  | 'left-top'
-  | 'left-middle'
-  | 'left-bottom'
-  | 'right-top'
-  | 'right-middle'
-  | 'right-bottom';
-
-export interface ResumeData {
-  fullName: string;
-  jobTitle: string;
-  email: string;
-  phone: string;
-  location: string;
-  website: string;
-  summary: string;
-  skills: string[];
-  experiences: Array<{
-    id: string;
-    role: string;
-    company: string;
-    startDate: string;
-    endDate: string;
-    current: boolean;
-    bullets: string[];
-  }>;
-  education: Array<{
-    id: string;
-    degree: string;
-    institution: string;
-    graduationYear: string;
-  }>;
-  projects: Array<{
-    id: string;
-    name: string;
-    description: string;
-    link?: string;
-  }>;
-}
-
-export interface BusinessCardData {
-  fullName: string;
-  jobTitle: string;
-  company: string;
-  email: string;
-  phone: string;
-  website: string;
-  address: string;
-  photoUrl?: string;
-  qrData?: string;
-  accentColor: string;
-  layout: 'modern' | 'minimal' | 'corporate';
 }
