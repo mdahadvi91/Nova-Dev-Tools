@@ -25,9 +25,12 @@ heroSubheadline: string;
 searchPlaceholder: string;
 searchNoResults: string;
 searchHint: string;
+searchToolsPlaceholder: string;
+toolsAvailable: string;
 
 privacyBadge: string;
 clientSideBadge: string;
+clientSideShort: string;
 
 popularTools: string;
 allTools: string;
@@ -52,22 +55,30 @@ favorites: string;
 recentTools: string;
 noFavorites: string;
 noRecentTools: string;
+saved: string;
+addToFavorites: string;
+removeFromFavorites: string;
 
 categories: string;
 workstations: string;
+tool: string;
+tools: string;
+popular: string;
+showAllTools: string;
+noToolsFound: string;
+noToolsFoundDescription: string;
 
 qr: WorkstationTranslation;
 image: WorkstationTranslation;
 pdf: WorkstationTranslation;
 career: WorkstationTranslation;
 
-workstations: Record<string, WorkstationTranslation>;
 workstationsData: WorkstationTranslation;
-
 utilities: WorkstationTranslation;
 design: WorkstationTranslation;
 calculators: WorkstationTranslation;
 
+workstations: Record<string, WorkstationTranslation>;
 tools: Record<string, LocalizedToolTranslation>;
 toolTitles: Record<string, string>;
 toolDescriptions: Record<string, string>;
@@ -119,11 +130,7 @@ copyright: string;
 };
 }
 
-const developerToolTitles: Record<
-Language,
-Record<string, string>
-
-«= {
+const developerToolTitles: Record<Language, Record<string, string>> = {
 en: {
 'json-formatter': 'JSON Formatter',
 'regex-tester': 'Regex Tester',
@@ -143,7 +150,7 @@ en: {
 'text-to-slug': 'Text to Slug',
 'number-base-converter': 'Number Base Converter',
 'color-code-converter': 'Color Code Converter',
-},»
+},
 
 bn: {
 'json-formatter': 'JSON ফরম্যাটার',
@@ -188,11 +195,7 @@ ar: {
 },
 };
 
-const developerToolDescriptions: Record<
-Language,
-Record<string, string>
-
-«= {
+const developerToolDescriptions: Record<Language, Record<string, string>> = {
 en: {
 'json-formatter':
 'Format, validate, and beautify JSON data directly in your browser.',
@@ -230,7 +233,7 @@ en: {
 'Convert numbers between binary, octal, decimal, hexadecimal, and other bases.',
 'color-code-converter':
 'Convert colors between HEX, RGB, HSL, and other common web color formats.',
-},»
+},
 
 bn: {
 'json-formatter':
@@ -755,7 +758,7 @@ close: 'إغلاق',
 },
 };
 
-const toolLabels: Record<
+const baseToolLabels: Record<
 Language,
 TranslationDictionary['toolLabels']
 
@@ -797,46 +800,75 @@ lines: 'الأسطر',
 },
 };
 
-const baseTranslations: Record<
-Language,
-Omit<
-TranslationDictionary,
-| 'actions'
-| 'toolLabels'
-| 'toolTitles'
-| 'toolDescriptions'
-| 'tools'
-| 'qr'
-| 'image'
-| 'pdf'
-| 'career'
-| 'utilities'
-| 'design'
-| 'calculators'
-| 'workstations'
-| 'workstationsData'
+interface BaseTranslation {
+appName: string;
+appTagline: string;
+heroHeadline: string;
+heroSubheadline: string;
+searchPlaceholder: string;
+searchNoResults: string;
+searchHint: string;
+searchToolsPlaceholder: string;
+toolsAvailable: string;
+privacyBadge: string;
+clientSideBadge: string;
+clientSideShort: string;
+popularTools: string;
+allTools: string;
+launchTool: string;
+openTool: string;
+back: string;
+copy: string;
+copied: string;
+clear: string;
+download: string;
+upload: string;
+reset: string;
+generate: string;
+convert: string;
+format: string;
+minify: string;
+validate: string;
+encode: string;
+decode: string;
+favorites: string;
+recentTools: string;
+noFavorites: string;
+noRecentTools: string;
+saved: string;
+addToFavorites: string;
+removeFromFavorites: string;
+categories: string;
+workstations: string;
+tool: string;
+tools: string;
+popular: string;
+showAllTools: string;
+noToolsFound: string;
+noToolsFoundDescription: string;
+nav: TranslationDictionary['nav'];
+footer: TranslationDictionary['footer'];
+}
 
-«= {
+const baseTranslations: Record<Language, BaseTranslation> = {
 en: {
 appName: 'Nova Dev Tools',
-appTagline: 'Free online tools for developers',»
+appTagline: 'Free online tools for developers',
 
-heroHeadline:
-  'Powerful Developer Tools. Simple Workflow.',
+heroHeadline: 'Powerful Developer Tools. Simple Workflow.',
 heroSubheadline:
   'Fast, free, and privacy-first tools for developers, programmers, and web creators.',
 
-searchPlaceholder:
-  'Search developer tools...',
-searchNoResults:
-  'No tools found.',
-searchHint:
-  'Search by tool name, keyword, or category.',
+searchPlaceholder: 'Search developer tools...',
+searchNoResults: 'No tools found.',
+searchHint: 'Search by tool name, keyword, or category.',
+searchToolsPlaceholder: 'Search tools...',
+toolsAvailable: 'tools available',
 
-privacyBadge:
-  'Privacy-first • Browser-based',
+privacyBadge: 'Privacy-first • Browser-based',
 clientSideBadge:
   'Your data stays in your browser whenever possible.',
+clientSideShort: 'Runs locally in your browser.',
 
 popularTools: 'Popular Tools',
 allTools: 'All Tools',
@@ -859,13 +891,21 @@ decode: 'Decode',
 
 favorites: 'Favorites',
 recentTools: 'Recent Tools',
-noFavorites:
-  'You have no favorite tools yet.',
-noRecentTools:
-  'No recently used tools.',
+noFavorites: 'You have no favorite tools yet.',
+noRecentTools: 'No recently used tools.',
+saved: 'Saved',
+addToFavorites: 'Add to favorites',
+removeFromFavorites: 'Remove from favorites',
 
 categories: 'Categories',
 workstations: 'Workstations',
+tool: 'Tool',
+tools: 'Tools',
+popular: 'Popular',
+showAllTools: 'Show All Tools',
+noToolsFound: 'No tools found',
+noToolsFoundDescription:
+  'Try a different search term or explore another workstation.',
 
 nav: {
   home: 'Home',
@@ -884,33 +924,29 @@ footer: {
   terms: 'Terms',
   about: 'About',
   contact: 'Contact',
-  copyright:
-    '© 2026 Nova Dev Tools. All rights reserved.',
+  copyright: '© 2026 Nova Dev Tools. All rights reserved.',
 },
 
 },
 
 bn: {
 appName: 'Nova Dev Tools',
-appTagline:
-'ডেভেলপারদের জন্য ফ্রি অনলাইন টুলস',
+appTagline: 'ডেভেলপারদের জন্য ফ্রি অনলাইন টুলস',
 
-heroHeadline:
-  'Powerful Developer Tools. Simple Workflow.',
+heroHeadline: 'Powerful Developer Tools. Simple Workflow.',
 heroSubheadline:
   'Developer, programmer এবং web creator-দের জন্য দ্রুত, ফ্রি ও privacy-first tools।',
 
-searchPlaceholder:
-  'Developer tools খুঁজুন...',
-searchNoResults:
-  'কোনো tool পাওয়া যায়নি।',
-searchHint:
-  'Tool name, keyword অথবা category দিয়ে search করুন।',
+searchPlaceholder: 'Developer tools খুঁজুন...',
+searchNoResults: 'কোনো tool পাওয়া যায়নি।',
+searchHint: 'Tool name, keyword অথবা category দিয়ে search করুন।',
+searchToolsPlaceholder: 'Tools খুঁজুন...',
+toolsAvailable: 'টি tool available',
 
-privacyBadge:
-  'Privacy-first • Browser-based',
+privacyBadge: 'Privacy-first • Browser-based',
 clientSideBadge:
   'সম্ভব হলে আপনার data browser-এর মধ্যেই থাকে।',
+clientSideShort: 'আপনার browser-এর মধ্যেই locally চলে।',
 
 popularTools: 'জনপ্রিয় Tools',
 allTools: 'সব Tools',
@@ -933,13 +969,21 @@ decode: 'Decode',
 
 favorites: 'পছন্দের Tools',
 recentTools: 'সাম্প্রতিক Tools',
-noFavorites:
-  'এখনও কোনো favorite tool নেই।',
-noRecentTools:
-  'সাম্প্রতিক কোনো tool নেই।',
+noFavorites: 'এখনও কোনো favorite tool নেই।',
+noRecentTools: 'সাম্প্রতিক কোনো tool নেই।',
+saved: 'Saved',
+addToFavorites: 'Favorite-এ যোগ করুন',
+removeFromFavorites: 'Favorite থেকে সরান',
 
 categories: 'Categories',
 workstations: 'Workstations',
+tool: 'Tool',
+tools: 'Tools',
+popular: 'জনপ্রিয়',
+showAllTools: 'সব Tools দেখুন',
+noToolsFound: 'কোনো tool পাওয়া যায়নি',
+noToolsFoundDescription:
+  'অন্য keyword দিয়ে search করুন অথবা অন্য workstation দেখুন।',
 
 nav: {
   home: 'হোম',
@@ -958,33 +1002,29 @@ footer: {
   terms: 'Terms',
   about: 'About',
   contact: 'Contact',
-  copyright:
-    '© 2026 Nova Dev Tools. সর্বস্বত্ব সংরক্ষিত।',
+  copyright: '© 2026 Nova Dev Tools. সর্বস্বত্ব সংরক্ষিত।',
 },
 
 },
 
 ar: {
 appName: 'Nova Dev Tools',
-appTagline:
-'أدوات مجانية عبر الإنترنت للمطورين',
+appTagline: 'أدوات مجانية عبر الإنترنت للمطورين',
 
-heroHeadline:
-  'أدوات تطوير قوية. سير عمل بسيط.',
+heroHeadline: 'أدوات تطوير قوية. سير عمل بسيط.',
 heroSubheadline:
   'أدوات سريعة ومجانية تركز على الخصوصية للمطورين والمبرمجين ومنشئي الويب.',
 
-searchPlaceholder:
-  'ابحث عن أدوات المطور...',
-searchNoResults:
-  'لم يتم العثور على أدوات.',
-searchHint:
-  'ابحث باسم الأداة أو الكلمة المفتاحية أو الفئة.',
+searchPlaceholder: 'ابحث عن أدوات المطور...',
+searchNoResults: 'لم يتم العثور على أدوات.',
+searchHint: 'ابحث باسم الأداة أو الكلمة المفتاحية أو الفئة.',
+searchToolsPlaceholder: 'ابحث عن الأدوات...',
+toolsAvailable: 'أدوات متاحة',
 
-privacyBadge:
-  'الخصوصية أولاً • تعمل عبر المتصفح',
+privacyBadge: 'الخصوصية أولاً • تعمل عبر المتصفح',
 clientSideBadge:
   'تبقى بياناتك داخل المتصفح كلما أمكن ذلك.',
+clientSideShort: 'تعمل محليًا داخل متصفحك.',
 
 popularTools: 'الأدوات الشائعة',
 allTools: 'جميع الأدوات',
@@ -1007,13 +1047,21 @@ decode: 'فك الترميز',
 
 favorites: 'المفضلة',
 recentTools: 'الأدوات الأخيرة',
-noFavorites:
-  'لا توجد أدوات مفضلة حتى الآن.',
-noRecentTools:
-  'لا توجد أدوات مستخدمة مؤخرًا.',
+noFavorites: 'لا توجد أدوات مفضلة حتى الآن.',
+noRecentTools: 'لا توجد أدوات مستخدمة مؤخرًا.',
+saved: 'محفوظ',
+addToFavorites: 'إضافة إلى المفضلة',
+removeFromFavorites: 'إزالة من المفضلة',
 
 categories: 'الفئات',
 workstations: 'محطات العمل',
+tool: 'أداة',
+tools: 'الأدوات',
+popular: 'شائع',
+showAllTools: 'عرض جميع الأدوات',
+noToolsFound: 'لم يتم العثور على أدوات',
+noToolsFoundDescription:
+  'جرّب كلمة بحث مختلفة أو استكشف محطة عمل أخرى.',
 
 nav: {
   home: 'الرئيسية',
@@ -1051,6 +1099,8 @@ developerToolDescriptions[language] ||
 developerToolDescriptions.en;
 
 const toolIds = new Set([
+...Object.keys(developerToolTitles.en),
+...Object.keys(developerToolDescriptions.en),
 ...Object.keys(titles),
 ...Object.keys(descriptions),
 ]);
@@ -1080,6 +1130,10 @@ return tools;
 function buildTranslation(
 language: Language,
 ): TranslationDictionary {
+const base =
+baseTranslations[language] ||
+baseTranslations.en;
+
 const workstationData =
 commonWorkstations[language] ||
 commonWorkstations.en;
@@ -1088,31 +1142,29 @@ const localizedTools =
 buildLocalizedTools(language);
 
 return {
-...baseTranslations[language],
+...base,
+
 actions:
-baseActions[language],
+  baseActions[language] ||
+  baseActions.en,
+
 toolLabels:
-toolLabels[language],
+  baseToolLabels[language] ||
+  baseToolLabels.en,
 
 qr: workstationData.qr,
 image: workstationData.image,
 pdf: workstationData.pdf,
 career: workstationData.career,
 
-utilities:
-  workstationData.utilities,
-design:
-  workstationData.design,
-calculators:
-  workstationData.calculators,
+utilities: workstationData.utilities,
+design: workstationData.design,
+calculators: workstationData.calculators,
 
 workstations: {
-  utilities:
-    workstationData.utilities,
-  design:
-    workstationData.design,
-  network:
-    workstationData.network,
+  utilities: workstationData.utilities,
+  design: workstationData.design,
+  network: workstationData.network,
 },
 
 workstationsData:
