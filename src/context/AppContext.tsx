@@ -737,11 +737,8 @@ updateUrlAndState({
 };
 
 const navigateBack = () => {
-if (
-typeof window !== 'undefined' &&
-window.history.length > 1
-) {
-window.history.back();
+if (navState.view === 'tool') {
+navigateToHome();
 return;
 }
 
@@ -750,13 +747,16 @@ if (navState.view === 'category') {
   return;
 }
 
-if (navState.view === 'tool') {
+if (navState.view === 'legal') {
   navigateToHome();
   return;
 }
 
-if (navState.view === 'legal') {
-  navigateToHome();
+if (
+  typeof window !== 'undefined' &&
+  window.history.length > 1
+) {
+  window.history.back();
   return;
 }
 
