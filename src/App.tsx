@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { TOOLS } from './data/tools';
+
 import { Header } from './components/layout/Header';
 import { LeftSidebar } from './components/layout/LeftSidebar';
 import { RightSidebar } from './components/layout/RightSidebar';
@@ -11,164 +12,104 @@ import { ToolWorkspace } from './components/common/ToolWorkspace';
 // Pages
 import { HomePage } from './components/home/HomePage';
 import { CategoryPage } from './components/pages/CategoryPage';
-import { PrivacyPolicyPage, TermsPage, AboutPage, ContactPage } from './components/pages/PolicyPages';
+import {
+  PrivacyPolicyPage,
+  TermsPage,
+  AboutPage,
+  ContactPage,
+} from './components/pages/PolicyPages';
 
-// QR Tools
-import { PhotoQROverlayTool } from './components/tools/qr/PhotoQROverlayTool';
-import { VCardBusinessCardTool } from './components/tools/qr/VCardBusinessCardTool';
-import { UnifiedUrlQRTool } from './components/tools/qr/UnifiedUrlQRTool';
-import { GenericQRTool } from './components/tools/qr/GenericQRTool';
-import { QRScannerTool } from './components/tools/qr/QRScannerTool';
-import { BatchQRTool } from './components/tools/qr/BatchQRTool';
-
-// Image Tools
-import { ImageConverterTool } from './components/tools/image/ImageConverterTool';
-import { ImageCompressorTool } from './components/tools/image/ImageCompressorTool';
-import { ImageResizerTool } from './components/tools/image/ImageResizerTool';
-import { ImageCropRotateTool } from './components/tools/image/ImageCropRotateTool';
-import { PassportPhotoTool } from './components/tools/image/PassportPhotoTool';
-
-// PDF Tools
-import { MergePdfTool } from './components/tools/pdf/MergePdfTool';
-import { SplitPdfTool } from './components/tools/pdf/SplitPdfTool';
-import { ImagesToPdfTool } from './components/tools/pdf/ImagesToPdfTool';
-import { WatermarkPdfTool } from './components/tools/pdf/WatermarkPdfTool';
-import { PageNumberPdfTool } from './components/tools/pdf/PageNumberPdfTool';
-
-// Career Tools
-import { ResumeMakerTool } from './components/tools/career/ResumeMakerTool';
-import { AtsCheckerTool } from './components/tools/career/AtsCheckerTool';
-import { JobTrackerTool } from './components/tools/career/JobTrackerTool';
-
-// Utilities & Dev
+// Developer Tools
 import { DevTools } from './components/tools/utilities/DevTools';
 import { TextTools } from './components/tools/utilities/TextTools';
-import { ColorTools } from './components/tools/design/ColorTools';
-import { FinanceCalcTools } from './components/tools/calculators/FinanceCalcTools';
-import { UnitConverterTool } from './components/tools/calculators/UnitConverterTool';
 
 const MainContent: React.FC = () => {
   const { navState, customBg } = useApp();
 
-  // Helper to render active tool component
+  /**
+   * Render the correct developer tool for the active tool ID.
+   *
+   * Tool definitions live in src/data/tools.ts.
+   * This keeps routing separate from the tool catalogue and allows
+   * the existing Nova Tools UI architecture to remain reusable.
+   */
   const renderToolComponent = (toolId: string) => {
     switch (toolId) {
-      // QR Tools: Photo + QR Overlay master tool and vCard tool
-      case 'photo-qr-overlay':
-      case 'url-link-qr':
-      case 'wifi-qr':
-      case 'whatsapp-qr':
-        return <PhotoQROverlayTool />;
-      case 'vcard-qr':
-      case 'visiting-card':
-        return <VCardBusinessCardTool />;
-      case 'qr-designer':
-        return <UnifiedUrlQRTool />;
-      case 'batch-qr':
-        return <BatchQRTool />;
-      case 'qr-scanner':
-        return <QRScannerTool />;
+      // ------------------------------------------------------------
+      // Developer / Data Tools
+      // ------------------------------------------------------------
 
-      // Image Tools: Strict Upload -> Preview -> Download flow
-      case 'jpg-to-png':
-        return <ImageConverterTool forcedTargetFormat="png" />;
-      case 'png-to-jpg':
-        return <ImageConverterTool forcedTargetFormat="jpeg" />;
-      case 'jpg-to-webp':
-        return <ImageConverterTool forcedTargetFormat="webp" />;
-      case 'webp-to-jpg':
-        return <ImageConverterTool forcedTargetFormat="jpeg" />;
-      case 'png-to-webp':
-        return <ImageConverterTool forcedTargetFormat="webp" />;
-      case 'webp-to-png':
-        return <ImageConverterTool forcedTargetFormat="png" />;
-      case 'image-converter':
-        return <ImageConverterTool />;
-      case 'image-compressor':
-        return <ImageCompressorTool />;
-      case 'image-resizer':
-        return <ImageResizerTool />;
-      case 'image-cropper':
-      case 'image-rotator':
-        return <ImageCropRotateTool />;
-      case 'passport-photo-maker':
-        return <PassportPhotoTool />;
-
-      // PDF Tools
-      case 'image-to-pdf':
-        return <ImagesToPdfTool />;
-      case 'pdf-merge':
-        return <MergePdfTool />;
-      case 'pdf-split':
-      case 'pdf-page-manager':
-        return <SplitPdfTool />;
-      case 'pdf-watermark':
-        return <WatermarkPdfTool />;
-      case 'pdf-rotate':
-      case 'pdf-password':
-        return <PageNumberPdfTool />;
-
-      // Career Tools
-      case 'resume-builder':
-      case 'cover-letter-builder':
-      case 'business-card':
-        return <ResumeMakerTool />;
-      case 'resume-analyzer':
-      case 'job-description-analyzer':
-        return <AtsCheckerTool />;
-      case 'job-search-tracker':
-        return <JobTrackerTool />;
-
-      // Utility & Developer Tools
-      case 'word-counter':
-        return <TextTools toolType="counter" />;
-      case 'case-converter':
-        return <TextTools toolType="case" />;
-      case 'text-cleaner':
-        return <TextTools toolType="cleaner" />;
-      case 'markdown-preview':
-        return <TextTools toolType="markdown" />;
       case 'json-formatter':
+      case 'json-validator':
+      case 'json-minifier':
         return <DevTools toolType="json" />;
+
       case 'base64-converter':
         return <DevTools toolType="base64" />;
+
       case 'url-encoder':
         return <DevTools toolType="url" />;
+
       case 'timestamp-converter':
         return <DevTools toolType="timestamp" />;
+
       case 'password-generator':
         return <DevTools toolType="password" />;
-      case 'unit-converter':
-        return <UnitConverterTool />;
 
-      // Design Tools
-      case 'color-picker':
-        return <ColorTools toolType="contrast" />;
-      case 'css-gradient':
-        return <ColorTools toolType="palette" />;
-      case 'image-color-extractor':
-        return <ColorTools toolType="picker" />;
+      // ------------------------------------------------------------
+      // Text / Code Tools
+      // ------------------------------------------------------------
 
-      // Calculators & Finance Tools
-      case 'loan-calculator':
-        return <FinanceCalcTools calcType="loan" />;
-      case 'compound-interest':
-        return <FinanceCalcTools calcType="compound" />;
-      case 'tip-calculator':
-        return <FinanceCalcTools calcType="tip" />;
-      case 'discount-calculator':
-        return <FinanceCalcTools calcType="discount" />;
-      case 'date-calculator':
-        return <FinanceCalcTools calcType="date" />;
+      case 'word-counter':
+        return <TextTools toolType="counter" />;
+
+      case 'case-converter':
+        return <TextTools toolType="case" />;
+
+      case 'text-cleaner':
+        return <TextTools toolType="cleaner" />;
+
+      case 'markdown-preview':
+        return <TextTools toolType="markdown" />;
+
+      // ------------------------------------------------------------
+      // New Developer Tools
+      // ------------------------------------------------------------
+      //
+      // These IDs are intentionally reserved for the new
+      // Nova Dev Tools catalogue. Their dedicated components
+      // will be connected here as they are introduced.
+      //
+      // Examples:
+      //
+      // case 'regex-tester':
+      //   return <RegexTesterTool />;
+      //
+      // case 'jwt-decoder':
+      //   return <JwtDecoderTool />;
+      //
+      // case 'uuid-generator':
+      //   return <UuidGeneratorTool />;
+      //
+      // case 'hash-generator':
+      //   return <HashGeneratorTool />;
+      //
+      // case 'sql-formatter':
+      //   return <SqlFormatterTool />;
+      //
+      // case 'diff-checker':
+      //   return <DiffCheckerTool />;
+      //
+      // ------------------------------------------------------------
 
       default:
-        return <PhotoQROverlayTool />;
+        return null;
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col relative text-slate-100 selection:bg-emerald-500 selection:text-white w-full max-w-full overflow-x-hidden">
-      {/* Background layer: Uses customBg or public/assets/background.jpg (100% original, no AI) */}
+      {/* Background layer: existing Nova Tools visual system */}
       {customBg ? (
         <div
           className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat"
@@ -180,38 +121,65 @@ const MainContent: React.FC = () => {
           style={{ backgroundImage: `url('/assets/background.jpg')` }}
         />
       )}
+
       <div className="fixed inset-0 app-bg-overlay pointer-events-none z-0" />
 
       <div className="relative z-10 flex flex-col min-h-screen w-full max-w-full overflow-x-hidden pt-14 sm:pt-16">
         <Header />
+
         <LeftSidebar />
+
         <RightSidebar />
+
         <SearchModal />
 
         <main className="flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-3 sm:py-6 overflow-x-hidden">
-          {/* Router View */}
+          {/* Home */}
           {navState.view === 'home' && <HomePage />}
 
+          {/* Category */}
           {navState.view === 'category' && navState.category && (
             <CategoryPage category={navState.category} />
           )}
 
+          {/* Legal Pages */}
           {navState.view === 'legal' && (
             <>
               {navState.legalPage === 'privacy' && <PrivacyPolicyPage />}
+
               {navState.legalPage === 'terms' && <TermsPage />}
+
               {navState.legalPage === 'about' && <AboutPage />}
+
               {navState.legalPage === 'contact' && <ContactPage />}
-              {(!navState.legalPage || navState.legalPage === 'disclaimer') && <PrivacyPolicyPage />}
+
+              {(!navState.legalPage ||
+                navState.legalPage === 'disclaimer') && (
+                <PrivacyPolicyPage />
+              )}
             </>
           )}
 
+          {/* Tool Workspace */}
           {navState.view === 'tool' && navState.toolId && (
             (() => {
-              const toolDef = TOOLS.find((t) => t.id === navState.toolId) || TOOLS[0];
+              const toolDef = TOOLS.find(
+                (tool) => tool.id === navState.toolId,
+              );
+
+              if (!toolDef) {
+                return null;
+              }
+
+              const toolComponent = renderToolComponent(navState.toolId);
+
+              if (!toolComponent) {
+                return null;
+              }
+
               return (
                 <ToolWorkspace tool={toolDef}>
-                  {renderToolComponent(navState.toolId)}
+                  {toolComponent}
                 </ToolWorkspace>
               );
             })()
