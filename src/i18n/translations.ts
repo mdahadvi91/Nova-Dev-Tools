@@ -1,4 +1,4 @@
-import { Language } from '../types';
+import type { Language } from '../types';
 
 export interface WorkstationTranslation {
 name: string;
@@ -9,85 +9,80 @@ popularFeatures: string[];
 
 export interface TranslationDictionary {
 appName: string;
-tagline: string;
+appTagline: string;
+
 heroHeadline: string;
 heroSubheadline: string;
+
 searchPlaceholder: string;
-searchModalTitle: string;
-noResultsFound: string;
+searchNoResults: string;
+searchHint: string;
+
 privacyBadge: string;
 clientSideBadge: string;
+
 popularTools: string;
 allTools: string;
 launchTool: string;
-filterPlaceholder: string;
-workstationToolsCount: string;
-advertisement: string;
-cookieNotice: string;
-accept: string;
+openTool: string;
+back: string;
+copy: string;
+copied: string;
+clear: string;
+download: string;
+upload: string;
+reset: string;
+generate: string;
+convert: string;
+format: string;
+minify: string;
+validate: string;
+encode: string;
+decode: string;
 
-categories: {
-all: string;
-popular: string;
-image: string;
-pdf: string;
-qr: string;
-career: string;
-utilities: string;
-design: string;
-calculators: string;
-ai: string;
-};
+favorites: string;
+recentTools: string;
+noFavorites: string;
+noRecentTools: string;
 
-workstations: {
+categories: string;
+workstations: string;
+
 qr: WorkstationTranslation;
 image: WorkstationTranslation;
 pdf: WorkstationTranslation;
 career: WorkstationTranslation;
+
+workstationsData: WorkstationTranslation;
 utilities: WorkstationTranslation;
 design: WorkstationTranslation;
 calculators: WorkstationTranslation;
-};
 
 actions: {
-back: string;
-upload: string;
-dragDrop: string;
-browse: string;
-process: string;
-processing: string;
-download: string;
-reset: string;
-copy: string;
-copied: string;
-options: string;
-preview: string;
-result: string;
-remove: string;
-apply: string;
-openLink: string;
+home: string;
+search: string;
+settings: string;
+favorites: string;
+recent: string;
+language: string;
+theme: string;
+light: string;
+dark: string;
+system: string;
+menu: string;
+close: string;
 };
 
 toolLabels: {
-format: string;
-quality: string;
-width: string;
-height: string;
-maintainAspect: string;
-originalSize: string;
-outputSize: string;
-reduction: string;
-overlayPosition: string;
-safeMargin: string;
-qrSize: string;
-qrData: string;
-qrDataPlaceholder: string;
-photoInput: string;
-scanabilityGood: string;
-scanabilityWarning: string;
-selectProfession: string;
-generateBio: string;
-uploadPhoto: string;
+input: string;
+output: string;
+result: string;
+options: string;
+settings: string;
+preview: string;
+characters: string;
+words: string;
+lines: string;
 };
 
 nav: {
@@ -101,630 +96,801 @@ disclaimer: string;
 };
 
 footer: {
-rights: string;
-privacyNotice: string;
-legal: string;
-quickLinks: string;
-madeForWeb: string;
+description: string;
+privacy: string;
+terms: string;
+about: string;
+contact: string;
+copyright: string;
 };
 
 toolTitles: Record<string, string>;
 toolDescriptions: Record<string, string>;
 }
 
-const developerToolTitles = {
+const developerToolTitles: Record<
+Language,
+Record<string, string>
+
+«= {
 en: {
-'json-formatter': 'JSON Formatter & Validator',
+'json-formatter': 'JSON Formatter',
 'regex-tester': 'Regex Tester',
 'jwt-decoder': 'JWT Decoder',
 'uuid-generator': 'UUID Generator',
 'hash-generator': 'Hash Generator',
-'cron-expression-generator': 'Cron Expression Generator',
+'cron-expression-generator':
+'Cron Expression Generator',
 'sql-formatter': 'SQL Formatter',
 'diff-checker': 'Diff Checker',
 'html-formatter': 'HTML Formatter',
 'css-formatter': 'CSS Formatter',
-'javascript-formatter': 'JavaScript Formatter',
-'html-entity-encoder': 'HTML Entity Encoder & Decoder',
-'http-status-code-reference': 'HTTP Status Code Reference',
-'mime-type-lookup': 'MIME Type Lookup',
+'javascript-formatter':
+'JavaScript Formatter',
+'html-entity-encoder':
+'HTML Entity Encoder',
+'http-status-code-reference':
+'HTTP Status Code Reference',
+'mime-type-lookup':
+'MIME Type Lookup',
 'json-minifier': 'JSON Minifier',
-'text-to-slug': 'Text to URL Slug',
-'number-base-converter': 'Number Base Converter',
-'color-code-converter': 'Color Code Converter',
-},
+'text-to-slug': 'Text to Slug',
+'number-base-converter':
+'Number Base Converter',
+'color-code-converter':
+'Color Code Converter',
+},»
 
 bn: {
-'json-formatter': 'JSON ফরম্যাটার ও ভ্যালিডেটর',
-'regex-tester': 'Regex Tester',
+'json-formatter': 'JSON ফরম্যাটার',
+'regex-tester': 'Regex টেস্টার',
 'jwt-decoder': 'JWT ডিকোডার',
 'uuid-generator': 'UUID জেনারেটর',
 'hash-generator': 'Hash জেনারেটর',
-'cron-expression-generator': 'Cron Expression জেনারেটর',
+'cron-expression-generator':
+'Cron Expression জেনারেটর',
 'sql-formatter': 'SQL ফরম্যাটার',
-'diff-checker': 'Diff Checker',
+'diff-checker': 'Diff চেকার',
 'html-formatter': 'HTML ফরম্যাটার',
 'css-formatter': 'CSS ফরম্যাটার',
-'javascript-formatter': 'JavaScript ফরম্যাটার',
-'html-entity-encoder': 'HTML Entity Encoder ও Decoder',
-'http-status-code-reference': 'HTTP Status Code Reference',
-'mime-type-lookup': 'MIME Type Lookup',
+'javascript-formatter':
+'JavaScript ফরম্যাটার',
+'html-entity-encoder':
+'HTML Entity Encoder',
+'http-status-code-reference':
+'HTTP Status Code Reference',
+'mime-type-lookup':
+'MIME Type Lookup',
 'json-minifier': 'JSON Minifier',
-'text-to-slug': 'Text to URL Slug',
-'number-base-converter': 'Number Base Converter',
-'color-code-converter': 'Color Code Converter',
+'text-to-slug': 'Text to Slug',
+'number-base-converter':
+'Number Base Converter',
+'color-code-converter':
+'Color Code Converter',
 },
 
 ar: {
-'json-formatter': 'منسق ومدقق JSON',
-'regex-tester': 'مختبر Regex',
-'jwt-decoder': 'فك ترميز JWT',
+'json-formatter': 'منسق JSON',
+'regex-tester': 'اختبار Regex',
+'jwt-decoder': 'فك تشفير JWT',
 'uuid-generator': 'مولد UUID',
 'hash-generator': 'مولد Hash',
-'cron-expression-generator': 'مولد Cron Expression',
+'cron-expression-generator':
+'مولد Cron Expression',
 'sql-formatter': 'منسق SQL',
-'diff-checker': 'مقارن النصوص والأكواد',
+'diff-checker': 'مقارنة النصوص',
 'html-formatter': 'منسق HTML',
 'css-formatter': 'منسق CSS',
-'javascript-formatter': 'منسق JavaScript',
-'html-entity-encoder': 'مشفر وفاك ترميز HTML Entities',
-'http-status-code-reference': 'مرجع أكواد HTTP',
-'mime-type-lookup': 'البحث عن MIME Type',
-'json-minifier': 'مصغر JSON',
-'text-to-slug': 'محول النص إلى URL Slug',
-'number-base-converter': 'محول أنظمة الأرقام',
-'color-code-converter': 'محول أكواد الألوان',
+'javascript-formatter':
+'منسق JavaScript',
+'html-entity-encoder':
+'مشفّر HTML Entity',
+'http-status-code-reference':
+'مرجع أكواد حالة HTTP',
+'mime-type-lookup':
+'البحث عن MIME Type',
+'json-minifier': 'ضغط JSON',
+'text-to-slug': 'تحويل النص إلى Slug',
+'number-base-converter':
+'محول أنظمة الأعداد',
+'color-code-converter':
+'محول أكواد الألوان',
 },
-} as const;
+};
 
-const developerToolDescriptions = {
+const developerToolDescriptions: Record<
+Language,
+Record<string, string>
+
+«= {
 en: {
 'json-formatter':
-'Format, validate, beautify, and inspect JSON with readable indentation and clear syntax feedback.',
-
+'Format, validate, and beautify JSON data directly in your browser.',
 'regex-tester':
-  'Test regular expressions against sample text with matches, groups, flags, and real-time results.',
-
+'Test regular expressions against text with fast pattern matching and clear results.',
 'jwt-decoder':
-  'Decode JSON Web Tokens locally to inspect the header and payload without sending the token to a server.',
-
+'Decode JWT header and payload data locally without sending tokens to a server.',
 'uuid-generator':
-  'Generate random UUIDs for application IDs, database records, APIs, testing, and development workflows.',
-
+'Generate unique UUID values quickly for applications, databases, APIs, and development.',
 'hash-generator':
-  'Generate cryptographic hashes from text using common hashing algorithms directly in your browser.',
-
+'Generate cryptographic hashes from text for development and verification workflows.',
 'cron-expression-generator':
-  'Build and understand cron schedules for recurring jobs, automation, servers, and task schedulers.',
-
+'Create and understand cron expressions for scheduled jobs and automated tasks.',
 'sql-formatter':
-  'Format and beautify SQL queries with readable indentation and consistent query structure.',
-
+'Format SQL queries into clean, readable code for development and database work.',
 'diff-checker':
-  'Compare two blocks of text or code and quickly identify added, removed, and changed lines.',
-
+'Compare two text or code inputs and quickly identify their differences.',
 'html-formatter':
-  'Beautify and format HTML markup with clean indentation for easier development and debugging.',
-
+'Beautify and organize HTML markup into clean, readable structure.',
 'css-formatter':
-  'Format and beautify CSS code with consistent indentation and readable rule structure.',
-
+'Format CSS code into a clean and consistent structure for easier development.',
 'javascript-formatter':
-  'Format and beautify JavaScript code for cleaner structure, indentation, and easier debugging.',
-
+'Format JavaScript code into readable, organized source code.',
 'html-entity-encoder':
-  'Encode special characters into HTML entities or decode HTML entities back into readable text.',
-
+'Encode and decode HTML entities for safe and correct HTML text handling.',
 'http-status-code-reference':
-  'Search and understand HTTP status codes, their meanings, and common API use cases.',
-
+'Quickly look up HTTP status codes, meanings, and common use cases.',
 'mime-type-lookup':
-  'Find common MIME types for file extensions and identify the correct Content-Type value.',
-
+'Find common MIME types and their corresponding file extensions.',
 'json-minifier':
-  'Remove unnecessary whitespace from JSON to create compact payloads for APIs and production use.',
-
+'Remove unnecessary JSON whitespace and produce compact JSON output.',
 'text-to-slug':
-  'Convert titles and text into clean, lowercase, URL-friendly slugs for websites and applications.',
-
+'Convert text into clean, URL-friendly slugs for websites and applications.',
 'number-base-converter':
-  'Convert numbers between binary, decimal, hexadecimal, and octal representations.',
-
+'Convert numbers between binary, octal, decimal, hexadecimal, and other bases.',
 'color-code-converter':
-  'Convert web colors between HEX, RGB, HSL, and common CSS color representations.',
-
-},
+'Convert colors between HEX, RGB, HSL, and other common web color formats.',
+},»
 
 bn: {
 'json-formatter':
-'JSON সুন্দরভাবে format, validate, beautify এবং structure inspect করুন।',
-
+'ব্রাউজারেই JSON ডেটা format, validate এবং সুন্দরভাবে সাজান।',
 'regex-tester':
-  'Sample text-এর বিরুদ্ধে regular expression test করুন এবং match, group ও flag ফলাফল দেখুন।',
-
+'টেক্সটের সঙ্গে Regular Expression পরীক্ষা করুন এবং দ্রুত matching result দেখুন।',
 'jwt-decoder':
-  'কোনো token server-এ পাঠানো ছাড়াই browser-এর ভিতরে JWT header ও payload দেখুন।',
-
+'কোনো token server-এ পাঠানো ছাড়াই browser-এর মধ্যে JWT header ও payload decode করুন।',
 'uuid-generator':
-  'Application ID, database record, API এবং testing-এর জন্য random UUID তৈরি করুন।',
-
+'Application, database, API এবং development-এর জন্য দ্রুত unique UUID তৈরি করুন।',
 'hash-generator':
-  'বিভিন্ন hashing algorithm ব্যবহার করে browser-এর মধ্যেই cryptographic hash তৈরি করুন।',
-
+'Development ও verification কাজের জন্য text থেকে cryptographic hash তৈরি করুন।',
 'cron-expression-generator':
-  'Server, automation এবং recurring job-এর জন্য Cron schedule তৈরি ও বুঝুন।',
-
+'Scheduled job এবং automated task-এর জন্য সহজে Cron expression তৈরি ও বুঝুন।',
 'sql-formatter':
-  'SQL query পরিষ্কার indentation ও consistent structure-এর মাধ্যমে format করুন।',
-
+'SQL query-কে পরিষ্কার ও readable code structure-এ format করুন।',
 'diff-checker':
-  'দুটি text বা code block compare করে added, removed এবং changed অংশ দ্রুত খুঁজে বের করুন।',
-
+'দুটি text বা code compare করে তাদের পার্থক্য দ্রুত শনাক্ত করুন।',
 'html-formatter':
-  'HTML markup পরিষ্কার indentation সহ format ও beautify করুন।',
-
+'HTML markup-কে সুন্দর, পরিষ্কার এবং readable structure-এ format করুন।',
 'css-formatter':
-  'CSS code consistent indentation ও readable rule structure সহ format করুন।',
-
+'CSS code-কে clean এবং consistent structure-এ সাজান।',
 'javascript-formatter':
-  'JavaScript code পরিষ্কার structure ও indentation সহ beautify করুন।',
-
+'JavaScript code-কে readable এবং organized source code-এ format করুন।',
 'html-entity-encoder':
-  'Special character HTML entity-তে encode করুন অথবা HTML entity আবার readable text-এ decode করুন।',
-
+'HTML entity encode ও decode করে HTML text সঠিকভাবে handle করুন।',
 'http-status-code-reference':
-  'HTTP status code-এর অর্থ, ব্যবহার এবং API response সম্পর্কে দ্রুত reference দেখুন।',
-
+'HTTP status code, তাদের অর্থ এবং সাধারণ ব্যবহার দ্রুত খুঁজে দেখুন।',
 'mime-type-lookup':
-  'File extension অনুযায়ী সঠিক MIME type ও Content-Type খুঁজে বের করুন।',
-
+'সাধারণ MIME type এবং সংশ্লিষ্ট file extension দ্রুত খুঁজে নিন।',
 'json-minifier':
-  'JSON-এর অপ্রয়োজনীয় whitespace সরিয়ে compact API payload তৈরি করুন।',
-
+'অপ্রয়োজনীয় whitespace সরিয়ে compact JSON তৈরি করুন।',
 'text-to-slug':
-  'Title বা text-কে পরিষ্কার, lowercase এবং URL-friendly slug-এ রূপান্তর করুন।',
-
+'Text-কে clean এবং URL-friendly slug-এ রূপান্তর করুন।',
 'number-base-converter':
-  'Binary, decimal, hexadecimal এবং octal-এর মধ্যে number convert করুন।',
-
+'Binary, octal, decimal, hexadecimal এবং অন্যান্য number base-এর মধ্যে রূপান্তর করুন।',
 'color-code-converter':
-  'HEX, RGB, HSL এবং CSS color representation-এর মধ্যে color convert করুন।',
-
+'HEX, RGB, HSL এবং অন্যান্য web color format-এর মধ্যে color convert করুন।',
 },
 
 ar: {
 'json-formatter':
-'تنسيق JSON والتحقق منه وتجميله واستعراض بنيته بوضوح داخل المتصفح.',
-
+'تنسيق والتحقق من بيانات JSON مباشرة داخل المتصفح.',
 'regex-tester':
-  'اختبر Regular Expressions على نصوص تجريبية مع عرض النتائج والمجموعات والخيارات مباشرة.',
-
+'اختبر التعبيرات النمطية مقابل النصوص مع نتائج مطابقة سريعة وواضحة.',
 'jwt-decoder':
-  'فك ترميز JWT محلياً لعرض Header وPayload دون إرسال الرمز إلى خادم خارجي.',
-
+'فك ترميز رأس وبيانات JWT محليًا دون إرسال الرموز إلى خادم.',
 'uuid-generator':
-  'إنشاء UUID عشوائية لاستخدامها في التطبيقات وقواعد البيانات وواجهات API والاختبارات.',
-
+'إنشاء UUIDs فريدة بسرعة للتطبيقات وقواعد البيانات وواجهات API والتطوير.',
 'hash-generator':
-  'إنشاء Hash تشفيرية من النصوص باستخدام خوارزميات شائعة مباشرة داخل المتصفح.',
-
+'إنشاء قيم Hash تشفيرية من النصوص لأعمال التطوير والتحقق.',
 'cron-expression-generator':
-  'إنشاء وفهم جداول Cron للمهام المتكررة والخوادم والأتمتة.',
-
+'إنشاء وفهم تعبيرات Cron للمهام المجدولة والعمليات الآلية.',
 'sql-formatter':
-  'تنسيق استعلامات SQL بهيكل واضح ومسافات بادئة سهلة القراءة.',
-
+'تنسيق استعلامات SQL إلى كود واضح وسهل القراءة.',
 'diff-checker':
-  'مقارنة نصين أو مقطعين من الأكواد واكتشاف الإضافات والحذف والتغييرات بسرعة.',
-
+'مقارنة نصين أو مقطعين من التعليمات البرمجية وتحديد الاختلافات بسرعة.',
 'html-formatter':
-  'تنسيق وتجميل HTML بمسافات بادئة منظمة لتسهيل التطوير وتصحيح الأخطاء.',
-
+'تنسيق وترتيب HTML في بنية نظيفة وسهلة القراءة.',
 'css-formatter':
-  'تنسيق CSS بهيكل واضح ومسافات بادئة متناسقة.',
-
+'تنسيق CSS في بنية نظيفة ومتناسقة لتسهيل التطوير.',
 'javascript-formatter':
-  'تنسيق وتجميل JavaScript لتحسين البنية والقراءة وتصحيح الأخطاء.',
-
+'تنسيق JavaScript إلى كود منظم وسهل القراءة.',
 'html-entity-encoder':
-  'ترميز الأحرف الخاصة إلى HTML Entities أو فكها إلى نص مقروء.',
-
+'ترميز وفك ترميز كيانات HTML للتعامل الصحيح مع النصوص.',
 'http-status-code-reference':
-  'البحث السريع عن أكواد HTTP ومعانيها واستخداماتها الشائعة في واجهات API.',
-
+'البحث السريع عن أكواد حالة HTTP ومعانيها واستخداماتها الشائعة.',
 'mime-type-lookup':
-  'العثور على MIME Type الصحيح حسب امتداد الملف وقيمة Content-Type المناسبة.',
-
+'العثور على أنواع MIME الشائعة وامتدادات الملفات المرتبطة بها.',
 'json-minifier':
-  'إزالة المسافات غير الضرورية من JSON لإنشاء بيانات API صغيرة وسريعة.',
-
+'إزالة المسافات غير الضرورية من JSON وإنشاء مخرجات JSON مضغوطة.',
 'text-to-slug':
-  'تحويل العناوين والنصوص إلى Slugs نظيفة وصديقة لعناوين URL.',
-
+'تحويل النص إلى Slug نظيف ومتوافق مع عناوين URL.',
 'number-base-converter':
-  'تحويل الأرقام بين Binary وDecimal وHexadecimal وOctal.',
-
+'تحويل الأرقام بين الأنظمة الثنائية والثمانية والعشرية والسداسية عشرية وغيرها.',
 'color-code-converter':
-  'تحويل ألوان الويب بين HEX وRGB وHSL وتمثيلات CSS الشائعة.',
-
+'تحويل الألوان بين HEX وRGB وHSL وتنسيقات ألوان الويب الشائعة الأخرى.',
 },
-} as const;
+};
 
-const commonWorkstations = {
+const commonWorkstations: Record<
+Language,
+Record<string, WorkstationTranslation>
+
+«= {
 en: {
-qr: {
-name: 'QR & Photo Overlay Workstation',
-badge: 'QR Suite',
-description:
-'QR tools from the previous Nova site.',
-popularFeatures: [],
-},
-
-image: {
-  name: 'Image Suite Workstation',
-  badge: 'Image Studio',
-  description:
-    'Image tools from the previous Nova site.',
-  popularFeatures: [],
-},
-
-pdf: {
-  name: 'PDF Suite Workstation',
-  badge: 'Document Studio',
-  description:
-    'PDF tools from the previous Nova site.',
-  popularFeatures: [],
-},
-
-career: {
-  name: 'Career & Resume Workstation',
-  badge: 'Career Hub',
-  description:
-    'Career tools from the previous Nova site.',
-  popularFeatures: [],
-},
-
 utilities: {
-  name: 'Developer Essentials',
-  badge: 'WORKSTATION 01',
-  description:
-    'Essential browser-based tools for developers, programmers, API work, debugging, data inspection, and everyday coding tasks.',
-  popularFeatures: [
-    'JSON Formatter',
-    'Regex Tester',
-    'JWT Decoder',
-    'UUID Generator',
-    'Hash Generator',
-    'Cron Expression Generator',
-  ],
-},
+name: 'Developer Essentials',
+badge: 'DEV CORE',
+description:
+'Essential browser-based tools for everyday development, debugging, APIs, authentication, validation, and backend workflows.',
+popularFeatures: [
+'JSON Formatter',
+'Regex Tester',
+'JWT Decoder',
+'UUID Generator',
+'Hash Generator',
+'Cron Generator',
+],
+},»
 
 design: {
   name: 'Web & Code Tools',
-  badge: 'WORKSTATION 02',
+  badge: 'WEB STACK',
   description:
-    'Practical tools for web development, frontend code, APIs, databases, HTTP, markup, stylesheets, and developer workflows.',
+    'Practical tools for frontend and backend developers working with SQL, HTML, CSS, JavaScript, HTTP, MIME types, and code comparison.',
   popularFeatures: [
     'SQL Formatter',
     'Diff Checker',
     'HTML Formatter',
     'CSS Formatter',
     'JavaScript Formatter',
-    'HTTP Status Reference',
+    'HTTP Status Codes',
   ],
 },
 
 calculators: {
   name: 'Nova Tools Network',
-  badge: 'WORKSTATION 03',
+  badge: 'NOVA NETWORK',
   description:
-    'Explore other specialized Nova Tools websites from the network.',
+    'Explore other Nova tool platforms for QR codes, image utilities, PDF tools, and additional browser-based productivity tools.',
   popularFeatures: [
-    'Nova QR Tools',
-    'Nova Image Tools',
-    'Nova PDF Tools',
+    'Nova Tools',
+    'Nova QR Code',
+    'Connected Nova Sites',
   ],
+},
+
+qr: {
+  name: 'Developer Essentials',
+  badge: 'DEV CORE',
+  description:
+    'Developer-focused utilities for everyday programming and technical workflows.',
+  popularFeatures: [],
+},
+
+image: {
+  name: 'Web & Code Tools',
+  badge: 'WEB STACK',
+  description:
+    'Practical web development and coding utilities.',
+  popularFeatures: [],
+},
+
+pdf: {
+  name: 'Nova Tools Network',
+  badge: 'NOVA NETWORK',
+  description:
+    'Explore connected Nova tool platforms.',
+  popularFeatures: [],
+},
+
+career: {
+  name: 'Nova Tools Network',
+  badge: 'NOVA NETWORK',
+  description:
+    'Explore other Nova tool platforms.',
+  popularFeatures: [],
 },
 
 },
 
 bn: {
-qr: {
-name: 'QR ও Photo Overlay Workstation',
-badge: 'QR Suite',
-description:
-'আগের Nova site-এর QR tools।',
-popularFeatures: [],
-},
-
-image: {
-  name: 'Image Suite Workstation',
-  badge: 'Image Studio',
-  description:
-    'আগের Nova site-এর image tools।',
-  popularFeatures: [],
-},
-
-pdf: {
-  name: 'PDF Suite Workstation',
-  badge: 'Document Studio',
-  description:
-    'আগের Nova site-এর PDF tools।',
-  popularFeatures: [],
-},
-
-career: {
-  name: 'Career & Resume Workstation',
-  badge: 'Career Hub',
-  description:
-    'আগের Nova site-এর career tools।',
-  popularFeatures: [],
-},
-
 utilities: {
-  name: 'Developer Essentials',
-  badge: 'WORKSTATION 01',
-  description:
-    'Developer, programmer, API, debugging, data inspection এবং everyday coding-এর জন্য প্রয়োজনীয় browser-based tools।',
-  popularFeatures: [
-    'JSON Formatter',
-    'Regex Tester',
-    'JWT Decoder',
-    'UUID Generator',
-    'Hash Generator',
-    'Cron Expression Generator',
-  ],
+name: 'Developer Essentials',
+badge: 'DEV CORE',
+description:
+'প্রতিদিনের development, debugging, API, authentication, validation এবং backend কাজের জন্য প্রয়োজনীয় browser-based developer tools।',
+popularFeatures: [
+'JSON Formatter',
+'Regex Tester',
+'JWT Decoder',
+'UUID Generator',
+'Hash Generator',
+'Cron Generator',
+],
 },
 
 design: {
   name: 'Web & Code Tools',
-  badge: 'WORKSTATION 02',
+  badge: 'WEB STACK',
   description:
-    'Web development, frontend code, API, database, HTTP, HTML, CSS এবং developer workflow-এর প্রয়োজনীয় tools।',
+    'SQL, HTML, CSS, JavaScript, HTTP, MIME type এবং code comparison-এর জন্য প্রয়োজনীয় web ও code tools।',
   popularFeatures: [
     'SQL Formatter',
     'Diff Checker',
     'HTML Formatter',
     'CSS Formatter',
     'JavaScript Formatter',
-    'HTTP Status Reference',
+    'HTTP Status Codes',
   ],
 },
 
 calculators: {
   name: 'Nova Tools Network',
-  badge: 'WORKSTATION 03',
+  badge: 'NOVA NETWORK',
   description:
-    'Nova Tools network-এর অন্যান্য specialized website-গুলোতে সরাসরি যান।',
+    'QR code, image utilities, PDF tools এবং অন্যান্য browser-based productivity tools-এর জন্য Nova-এর অন্য platformগুলো দেখুন।',
   popularFeatures: [
-    'Nova QR Tools',
-    'Nova Image Tools',
-    'Nova PDF Tools',
+    'Nova Tools',
+    'Nova QR Code',
+    'Connected Nova Sites',
   ],
+},
+
+qr: {
+  name: 'Developer Essentials',
+  badge: 'DEV CORE',
+  description:
+    'প্রতিদিনের programming এবং technical workflow-এর জন্য developer-focused tools।',
+  popularFeatures: [],
+},
+
+image: {
+  name: 'Web & Code Tools',
+  badge: 'WEB STACK',
+  description:
+    'Web development এবং coding-এর জন্য প্রয়োজনীয় practical tools।',
+  popularFeatures: [],
+},
+
+pdf: {
+  name: 'Nova Tools Network',
+  badge: 'NOVA NETWORK',
+  description:
+    'সংযুক্ত Nova tool platformগুলো explore করুন।',
+  popularFeatures: [],
+},
+
+career: {
+  name: 'Nova Tools Network',
+  badge: 'NOVA NETWORK',
+  description:
+    'Nova-এর অন্যান্য tool platform explore করুন।',
+  popularFeatures: [],
 },
 
 },
 
 ar: {
-qr: {
-name: 'محطة QR وتركيب الصور',
-badge: 'QR Suite',
-description:
-'أدوات QR من موقع Nova السابق.',
-popularFeatures: [],
-},
-
-image: {
-  name: 'محطة الصور',
-  badge: 'Image Studio',
-  description:
-    'أدوات الصور من موقع Nova السابق.',
-  popularFeatures: [],
-},
-
-pdf: {
-  name: 'محطة PDF',
-  badge: 'Document Studio',
-  description:
-    'أدوات PDF من موقع Nova السابق.',
-  popularFeatures: [],
-},
-
-career: {
-  name: 'محطة السيرة المهنية',
-  badge: 'Career Hub',
-  description:
-    'أدوات المسار المهني من موقع Nova السابق.',
-  popularFeatures: [],
-},
-
 utilities: {
-  name: 'أساسيات المطورين',
-  badge: 'WORKSTATION 01',
-  description:
-    'أدوات أساسية للمطورين والبرمجة وواجهات API وتصحيح الأخطاء وفحص البيانات.',
-  popularFeatures: [
-    'منسق JSON',
-    'مختبر Regex',
-    'فك JWT',
-    'مولد UUID',
-    'مولد Hash',
-    'مولد Cron',
-  ],
+name: 'أساسيات المطور',
+badge: 'DEV CORE',
+description:
+'أدوات أساسية داخل المتصفح للتطوير اليومي وتصحيح الأخطاء وواجهات API والمصادقة والتحقق وأعمال الواجهة الخلفية.',
+popularFeatures: [
+'منسق JSON',
+'اختبار Regex',
+'فك تشفير JWT',
+'مولد UUID',
+'مولد Hash',
+'مولد Cron',
+],
 },
 
 design: {
-  name: 'أدوات الويب والأكواد',
-  badge: 'WORKSTATION 02',
+  name: 'أدوات الويب والبرمجة',
+  badge: 'WEB STACK',
   description:
-    'أدوات عملية لتطوير الويب وFrontend وAPI وقواعد البيانات وHTTP وHTML وCSS.',
+    'أدوات عملية لمطوري الواجهة الأمامية والخلفية للعمل مع SQL وHTML وCSS وJavaScript وHTTP وMIME ومقارنة الأكواد.',
   popularFeatures: [
     'منسق SQL',
-    'مقارن الأكواد',
+    'مقارنة الأكواد',
     'منسق HTML',
     'منسق CSS',
     'منسق JavaScript',
-    'مرجع HTTP',
+    'أكواد حالة HTTP',
   ],
 },
 
 calculators: {
   name: 'شبكة Nova Tools',
-  badge: 'WORKSTATION 03',
+  badge: 'NOVA NETWORK',
   description:
-    'استكشف مواقع Nova Tools المتخصصة الأخرى من خلال الشبكة.',
+    'استكشف منصات Nova الأخرى لأدوات QR والصور وPDF وغيرها من أدوات الإنتاجية التي تعمل عبر المتصفح.',
   popularFeatures: [
-    'Nova QR Tools',
-    'Nova Image Tools',
-    'Nova PDF Tools',
+    'Nova Tools',
+    'Nova QR Code',
+    'مواقع Nova المتصلة',
   ],
 },
 
+qr: {
+  name: 'أساسيات المطور',
+  badge: 'DEV CORE',
+  description:
+    'أدوات مخصصة للمطورين للاستخدام اليومي وسير العمل التقني.',
+  popularFeatures: [],
 },
-} as const;
 
-const baseActions = {
-en: {
-back: 'Back',
-upload: 'Choose File',
-dragDrop:
-'Drag and drop your file here, or click to browse',
-browse: 'Browse Files',
-process: 'Process',
-processing: 'Processing...',
-download: 'Download Result',
-reset: 'Reset',
-copy: 'Copy to Clipboard',
-copied: 'Copied!',
-options: 'Tool Options',
-preview: 'Live Preview',
-result: 'Result',
-remove: 'Remove',
-apply: 'Apply Changes',
-openLink: 'Open Link Safely',
+image: {
+  name: 'أدوات الويب والبرمجة',
+  badge: 'WEB STACK',
+  description:
+    'أدوات عملية لتطوير الويب والبرمجة.',
+  popularFeatures: [],
 },
+
+pdf: {
+  name: 'شبكة Nova Tools',
+  badge: 'NOVA NETWORK',
+  description:
+    'استكشف منصات Nova المتصلة.',
+  popularFeatures: [],
+},
+
+career: {
+  name: 'شبكة Nova Tools',
+  badge: 'NOVA NETWORK',
+  description:
+    'استكشف منصات Nova الأخرى.',
+  popularFeatures: [],
+},
+
+},
+};
+
+const baseActions: Record<
+Language,
+TranslationDictionary['actions']
+
+«= {
+en: {
+home: 'Home',
+search: 'Search',
+settings: 'Settings',
+favorites: 'Favorites',
+recent: 'Recent',
+language: 'Language',
+theme: 'Theme',
+light: 'Light',
+dark: 'Dark',
+system: 'System',
+menu: 'Menu',
+close: 'Close',
+},»
 
 bn: {
-back: 'ফিরে যান',
-upload: 'ফাইল নির্বাচন করুন',
-dragDrop:
-'এখানে ফাইল টেনে আনুন অথবা ব্রাউজ করতে ক্লিক করুন',
-browse: 'ফাইল নির্বাচন করুন',
-process: 'Process করুন',
-processing: 'Processing হচ্ছে...',
-download: 'Result Download',
-reset: 'Reset',
-copy: 'Clipboard-এ Copy করুন',
-copied: 'Copy হয়েছে!',
-options: 'Tool Options',
-preview: 'Live Preview',
-result: 'Result',
-remove: 'Remove',
-apply: 'Changes Apply করুন',
-openLink: 'নিরাপদে Link খুলুন',
+home: 'হোম',
+search: 'সার্চ',
+settings: 'সেটিংস',
+favorites: 'পছন্দের',
+recent: 'সাম্প্রতিক',
+language: 'ভাষা',
+theme: 'থিম',
+light: 'লাইট',
+dark: 'ডার্ক',
+system: 'সিস্টেম',
+menu: 'মেনু',
+close: 'বন্ধ করুন',
 },
 
 ar: {
-back: 'رجوع',
-upload: 'اختيار ملف',
-dragDrop:
-'اسحب الملف هنا أو انقر للاستعراض',
-browse: 'استعراض الملفات',
-process: 'معالجة',
-processing: 'جاري المعالجة...',
-download: 'تحميل النتيجة',
-reset: 'إعادة ضبط',
-copy: 'نسخ',
-copied: 'تم النسخ!',
-options: 'خيارات الأداة',
-preview: 'معاينة مباشرة',
+home: 'الرئيسية',
+search: 'بحث',
+settings: 'الإعدادات',
+favorites: 'المفضلة',
+recent: 'الأخيرة',
+language: 'اللغة',
+theme: 'المظهر',
+light: 'فاتح',
+dark: 'داكن',
+system: 'النظام',
+menu: 'القائمة',
+close: 'إغلاق',
+},
+};
+
+const toolLabels: Record<
+Language,
+TranslationDictionary['toolLabels']
+
+«= {
+en: {
+input: 'Input',
+output: 'Output',
+result: 'Result',
+options: 'Options',
+settings: 'Settings',
+preview: 'Preview',
+characters: 'Characters',
+words: 'Words',
+lines: 'Lines',
+},»
+
+bn: {
+input: 'ইনপুট',
+output: 'আউটপুট',
+result: 'রেজাল্ট',
+options: 'অপশন',
+settings: 'সেটিংস',
+preview: 'প্রিভিউ',
+characters: 'অক্ষর',
+words: 'শব্দ',
+lines: 'লাইন',
+},
+
+ar: {
+input: 'الإدخال',
+output: 'الإخراج',
 result: 'النتيجة',
-remove: 'إزالة',
-apply: 'تطبيق التغييرات',
-openLink: 'فتح الرابط بأمان',
+options: 'الخيارات',
+settings: 'الإعدادات',
+preview: 'المعاينة',
+characters: 'الأحرف',
+words: 'الكلمات',
+lines: 'الأسطر',
 },
-} as const;
+};
 
-const toolLabels = {
+const baseTranslations: Record<
+Language,
+Omit<
+TranslationDictionary,
+| 'actions'
+| 'toolLabels'
+| 'toolTitles'
+| 'toolDescriptions'
+| 'qr'
+| 'image'
+| 'pdf'
+| 'career'
+| 'utilities'
+| 'design'
+| 'calculators'
+| 'workstationsData'
+
+«= {
 en: {
+appName: 'Nova Dev Tools',
+appTagline:
+'Free online tools for developers',»
+
+heroHeadline:
+  'Powerful Developer Tools. Simple Workflow.',
+heroSubheadline:
+  'Fast, free, and privacy-first tools for developers, programmers, and web creators.',
+
+searchPlaceholder:
+  'Search developer tools...',
+searchNoResults:
+  'No tools found.',
+searchHint:
+  'Search by tool name, keyword, or category.',
+
+privacyBadge:
+  'Privacy-first • Browser-based',
+clientSideBadge:
+  'Your data stays in your browser whenever possible.',
+
+popularTools: 'Popular Tools',
+allTools: 'All Tools',
+launchTool: 'Launch Tool',
+openTool: 'Open Tool',
+back: 'Back',
+copy: 'Copy',
+copied: 'Copied',
+clear: 'Clear',
+download: 'Download',
+upload: 'Upload',
+reset: 'Reset',
+generate: 'Generate',
+convert: 'Convert',
 format: 'Format',
-quality: 'Quality',
-width: 'Width (px)',
-height: 'Height (px)',
-maintainAspect: 'Keep Aspect Ratio',
-originalSize: 'Original Size',
-outputSize: 'Output Size',
-reduction: 'Size Reduction',
-overlayPosition: 'Position',
-safeMargin: 'Safe Margin',
-qrSize: 'QR Size',
-qrData: 'QR Data',
-qrDataPlaceholder:
-'Enter URL, text, or data...',
-photoInput: 'Upload Image',
-scanabilityGood:
-'Good contrast and readable structure.',
-scanabilityWarning:
-'Check the size and contrast before using the result.',
-selectProfession: 'Select Profession',
-generateBio: 'Generate Professional Bio',
-uploadPhoto: 'Upload Photo',
+minify: 'Minify',
+validate: 'Validate',
+encode: 'Encode',
+decode: 'Decode',
+
+favorites: 'Favorites',
+recentTools: 'Recent Tools',
+noFavorites:
+  'You have no favorite tools yet.',
+noRecentTools:
+  'No recently used tools.',
+
+categories: 'Categories',
+workstations: 'Workstations',
+
+nav: {
+  home: 'Home',
+  tools: 'Tools',
+  privacy: 'Privacy Policy',
+  terms: 'Terms',
+  about: 'About',
+  contact: 'Contact',
+  disclaimer: 'Disclaimer',
+},
+
+footer: {
+  description:
+    'Free, fast, and privacy-first developer tools for everyday coding and web development.',
+  privacy: 'Privacy',
+  terms: 'Terms',
+  about: 'About',
+  contact: 'Contact',
+  copyright:
+    '© 2026 Nova Dev Tools. All rights reserved.',
+},
+
 },
 
 bn: {
-format: 'Format',
-quality: 'Quality',
-width: 'Width (px)',
-height: 'Height (px)',
-maintainAspect:
-'Aspect Ratio বজায় রাখুন',
-originalSize: 'Original Size',
-outputSize: 'Output Size',
-reduction: 'Size Reduction',
-overlayPosition: 'Position',
-safeMargin: 'Safe Margin',
-qrSize: 'QR Size',
-qrData: 'QR Data',
-qrDataPlaceholder:
-'URL, text অথবা data লিখুন...',
-photoInput: 'Image Upload',
-scanabilityGood:
-'Contrast এবং structure ভালো আছে।',
-scanabilityWarning:
-'Result ব্যবহার করার আগে size ও contrast পরীক্ষা করুন।',
-selectProfession:
-'Profession নির্বাচন করুন',
-generateBio:
-'Professional Bio তৈরি করুন',
-uploadPhoto: 'Photo Upload',
+appName: 'Nova Dev Tools',
+appTagline:
+'ডেভেলপারদের জন্য ফ্রি অনলাইন টুলস',
+
+heroHeadline:
+  'Powerful Developer Tools. Simple Workflow.',
+heroSubheadline:
+  'Developer, programmer এবং web creator-দের জন্য দ্রুত, ফ্রি ও privacy-first tools।',
+
+searchPlaceholder:
+  'Developer tools খুঁজুন...',
+searchNoResults:
+  'কোনো tool পাওয়া যায়নি।',
+searchHint:
+  'Tool name, keyword অথবা category দিয়ে search করুন।',
+
+privacyBadge:
+  'Privacy-first • Browser-based',
+clientSideBadge:
+  'সম্ভব হলে আপনার data browser-এর মধ্যেই থাকে।',
+
+popularTools: 'জনপ্রিয় Tools',
+allTools: 'সব Tools',
+launchTool: 'Tool চালু করুন',
+openTool: 'Tool খুলুন',
+back: 'ফিরে যান',
+copy: 'কপি',
+copied: 'কপি হয়েছে',
+clear: 'ক্লিয়ার',
+download: 'ডাউনলোড',
+upload: 'আপলোড',
+reset: 'রিসেট',
+generate: 'তৈরি করুন',
+convert: 'রূপান্তর করুন',
+format: 'ফরম্যাট',
+minify: 'Minify',
+validate: 'Validate',
+encode: 'Encode',
+decode: 'Decode',
+
+favorites: 'পছন্দের Tools',
+recentTools: 'সাম্প্রতিক Tools',
+noFavorites:
+  'এখনও কোনো favorite tool নেই।',
+noRecentTools:
+  'সাম্প্রতিক কোনো tool নেই।',
+
+categories: 'Categories',
+workstations: 'Workstations',
+
+nav: {
+  home: 'হোম',
+  tools: 'Tools',
+  privacy: 'Privacy Policy',
+  terms: 'Terms',
+  about: 'About',
+  contact: 'Contact',
+  disclaimer: 'Disclaimer',
+},
+
+footer: {
+  description:
+    'প্রতিদিনের coding ও web development-এর জন্য ফ্রি, দ্রুত এবং privacy-first developer tools।',
+  privacy: 'Privacy',
+  terms: 'Terms',
+  about: 'About',
+  contact: 'Contact',
+  copyright:
+    '© 2026 Nova Dev Tools. সর্বস্বত্ব সংরক্ষিত।',
+},
+
 },
 
 ar: {
-format: 'التنسيق',
-quality: 'الجودة',
-width: 'العرض (px)',
-height: 'الارتفاع (px)',
-maintainAspect:
-'الحفاظ على النسبة',
-originalSize: 'الحجم الأصلي',
-outputSize: 'الحجم الناتج',
-reduction: 'تقليل الحجم',
-overlayPosition: 'الموضع',
-safeMargin: 'الهامش الآمن',
-qrSize: 'حجم QR',
-qrData: 'بيانات QR',
-qrDataPlaceholder:
-'أدخل الرابط أو النص أو البيانات...',
-photoInput: 'رفع صورة',
-scanabilityGood:
-'التباين والبنية مناسبين.',
-scanabilityWarning:
-'تحقق من الحجم والتباين قبل استخدام النتيجة.',
-selectProfession: 'اختر المهنة',
-generateBio: 'إنشاء نبذة مهنية',
-uploadPhoto: 'رفع الصورة',
+appName: 'Nova Dev Tools',
+appTagline:
+'أدوات مجانية عبر الإنترنت للمطورين',
+
+heroHeadline:
+  'أدوات تطوير قوية. سير عمل بسيط.',
+heroSubheadline:
+  'أدوات سريعة ومجانية تركز على الخصوصية للمطورين والمبرمجين ومنشئي الويب.',
+
+searchPlaceholder:
+  'ابحث عن أدوات المطور...',
+searchNoResults:
+  'لم يتم العثور على أدوات.',
+searchHint:
+  'ابحث باسم الأداة أو الكلمة المفتاحية أو الفئة.',
+
+privacyBadge:
+  'الخصوصية أولاً • تعمل عبر المتصفح',
+clientSideBadge:
+  'تبقى بياناتك داخل المتصفح كلما أمكن ذلك.',
+
+popularTools: 'الأدوات الشائعة',
+allTools: 'جميع الأدوات',
+launchTool: 'تشغيل الأداة',
+openTool: 'فتح الأداة',
+back: 'رجوع',
+copy: 'نسخ',
+copied: 'تم النسخ',
+clear: 'مسح',
+download: 'تنزيل',
+upload: 'رفع',
+reset: 'إعادة تعيين',
+generate: 'إنشاء',
+convert: 'تحويل',
+format: 'تنسيق',
+minify: 'ضغط',
+validate: 'تحقق',
+encode: 'ترميز',
+decode: 'فك الترميز',
+
+favorites: 'المفضلة',
+recentTools: 'الأدوات الأخيرة',
+noFavorites:
+  'لا توجد أدوات مفضلة حتى الآن.',
+noRecentTools:
+  'لا توجد أدوات مستخدمة مؤخرًا.',
+
+categories: 'الفئات',
+workstations: 'محطات العمل',
+
+nav: {
+  home: 'الرئيسية',
+  tools: 'الأدوات',
+  privacy: 'سياسة الخصوصية',
+  terms: 'الشروط',
+  about: 'حول',
+  contact: 'اتصل بنا',
+  disclaimer: 'إخلاء المسؤولية',
 },
-} as const;
+
+footer: {
+  description:
+    'أدوات تطوير مجانية وسريعة تركز على الخصوصية للاستخدام اليومي في البرمجة وتطوير الويب.',
+  privacy: 'الخصوصية',
+  terms: 'الشروط',
+  about: 'حول',
+  contact: 'اتصل بنا',
+  copyright:
+    '© 2026 Nova Dev Tools. جميع الحقوق محفوظة.',
+},
+
+},
+};
 
 export const translations: Record<
 Language,
@@ -732,364 +898,100 @@ TranslationDictionary
 
 «= {
 en: {
-appName: 'Nova Dev Tools',
-tagline: 'Free Online Developer Tools',»
-
-heroHeadline:
-  'Powerful Developer Tools, Directly in Your Browser',
-
-heroSubheadline:
-  'Format code, inspect data, test patterns, convert values, debug web projects, and handle everyday developer tasks without unnecessary complexity.',
-
-searchPlaceholder:
-  'Search developer tools...',
-
-searchModalTitle:
-  'Search Nova Dev Tools',
-
-noResultsFound:
-  'No tools found matching your search.',
-
-privacyBadge:
-  '100% Client-Side Processing',
-
-clientSideBadge:
-  'Your input stays in your browser',
-
-popularTools:
-  'Popular Developer Tools',
-
-allTools:
-  'Developer Tool Directory',
-
-launchTool:
-  'Launch Tool',
-
-filterPlaceholder:
-  'Filter tools in workstation...',
-
-workstationToolsCount:
-  'developer tools running directly in your browser.',
-
-advertisement:
-  'Advertisement',
-
-cookieNotice:
-  'Nova Dev Tools uses privacy-conscious technologies and Google AdSense to provide free online tools. Tool input is processed locally whenever the tool supports client-side processing.',
-
-accept:
-  'Accept & Close',
-
-categories: {
-  all: 'All Tools',
-  popular: 'Popular',
-  image: 'Image Tools',
-  pdf: 'PDF Tools',
-  qr: 'QR Tools',
-  career: 'Career Tools',
-  utilities: 'Developer Tools',
-  design: 'Web & Code',
-  calculators: 'Calculators',
-  ai: 'AI Tools',
-},
-
-workstations:
-  commonWorkstations.en,
-
-actions:
-  baseActions.en,
-
-toolLabels:
-  toolLabels.en,
-
-nav: {
-  home: 'Home',
-  tools: 'Tools',
-  privacy: 'Privacy Policy',
-  terms: 'Terms of Service',
-  about: 'About Nova Dev Tools',
-  contact: 'Contact Us',
-  disclaimer: 'Disclaimer',
-},
-
-footer: {
-  rights:
-    'All rights reserved.',
-
-  privacyNotice:
-    'Nova Dev Tools is designed with browser-first processing. Sensitive input should remain on your device when a tool performs its work locally.',
-
-  legal:
-    'Legal & Trust',
-
-  quickLinks:
-    'Navigation',
-
-  madeForWeb:
-    'Engineered for speed, privacy, and developer productivity.',
-},
-
+...baseTranslations.en,
+actions: baseActions.en,
+toolLabels: toolLabels.en,
+qr: commonWorkstations.en.qr,
+image: commonWorkstations.en.image,
+pdf: commonWorkstations.en.pdf,
+career: commonWorkstations.en.career,
+utilities:
+commonWorkstations.en.utilities,
+design:
+commonWorkstations.en.design,
+calculators:
+commonWorkstations.en.calculators,
+workstationsData:
+commonWorkstations.en.utilities,
 toolTitles:
-  developerToolTitles.en,
-
+developerToolTitles.en,
 toolDescriptions:
-  developerToolDescriptions.en,
-
-},
+developerToolDescriptions.en,
+},»
 
 bn: {
-appName:
-'Nova Dev Tools',
-
-tagline:
-  'ফ্রি অনলাইন Developer Tools',
-
-heroHeadline:
-  'Powerful Developer Tools, সরাসরি আপনার Browser-এ',
-
-heroSubheadline:
-  'Code format করুন, data inspect করুন, pattern test করুন, value convert করুন এবং everyday development task দ্রুত সম্পন্ন করুন।',
-
-searchPlaceholder:
-  'Developer tool খুঁজুন...',
-
-searchModalTitle:
-  'Nova Dev Tools অনুসন্ধান',
-
-noResultsFound:
-  'আপনার search-এর সাথে কোনো tool পাওয়া যায়নি।',
-
-privacyBadge:
-  '100% Client-Side Processing',
-
-clientSideBadge:
-  'Tool input browser-এর মধ্যেই থাকে',
-
-popularTools:
-  'জনপ্রিয় Developer Tools',
-
-allTools:
-  'Developer Tool Directory',
-
-launchTool:
-  'Tool চালু করুন',
-
-filterPlaceholder:
-  'Workstation-এর tools filter করুন...',
-
-workstationToolsCount:
-  'টি developer tool সরাসরি আপনার browser-এ চলে।',
-
-advertisement:
-  'বিজ্ঞাপন',
-
-cookieNotice:
-  'Nova Dev Tools ফ্রি online tools দেওয়ার জন্য privacy-conscious technology এবং Google AdSense ব্যবহার করে। যেসব tool client-side processing সমর্থন করে, সেগুলোর input browser-এর মধ্যেই process হয়।',
-
-accept:
-  'Accept ও Close',
-
-categories: {
-  all: 'সব Tools',
-  popular: 'জনপ্রিয়',
-  image: 'Image Tools',
-  pdf: 'PDF Tools',
-  qr: 'QR Tools',
-  career: 'Career Tools',
-  utilities: 'Developer Tools',
-  design: 'Web & Code',
-  calculators: 'Calculators',
-  ai: 'AI Tools',
-},
-
-workstations:
-  commonWorkstations.bn,
-
-actions:
-  baseActions.bn,
-
-toolLabels:
-  toolLabels.bn,
-
-nav: {
-  home: 'হোম',
-  tools: 'Tools',
-  privacy: 'Privacy Policy',
-  terms: 'Terms of Service',
-  about: 'Nova Dev Tools সম্পর্কে',
-  contact: 'যোগাযোগ',
-  disclaimer: 'Disclaimer',
-},
-
-footer: {
-  rights:
-    'সর্বস্বত্ব সংরক্ষিত।',
-
-  privacyNotice:
-    'Nova Dev Tools browser-first processing-এর জন্য তৈরি। কোনো tool local processing করলে sensitive input আপনার device-এর মধ্যেই থাকে।',
-
-  legal:
-    'Legal & Trust',
-
-  quickLinks:
-    'Navigation',
-
-  madeForWeb:
-    'Speed, privacy এবং developer productivity-এর জন্য তৈরি।',
-},
-
+...baseTranslations.bn,
+actions: baseActions.bn,
+toolLabels: toolLabels.bn,
+qr: commonWorkstations.bn.qr,
+image: commonWorkstations.bn.image,
+pdf: commonWorkstations.bn.pdf,
+career: commonWorkstations.bn.career,
+utilities:
+commonWorkstations.bn.utilities,
+design:
+commonWorkstations.bn.design,
+calculators:
+commonWorkstations.bn.calculators,
+workstationsData:
+commonWorkstations.bn.utilities,
 toolTitles:
-  developerToolTitles.bn,
-
+developerToolTitles.bn,
 toolDescriptions:
-  developerToolDescriptions.bn,
-
+developerToolDescriptions.bn,
 },
 
 ar: {
-appName:
-'Nova Dev Tools',
-
-tagline:
-  'أدوات مطورين مجانية عبر الإنترنت',
-
-heroHeadline:
-  'أدوات قوية للمطورين مباشرة داخل متصفحك',
-
-heroSubheadline:
-  'نسّق الأكواد، افحص البيانات، اختبر الأنماط، حوّل القيم، وتعامل مع مهام التطوير اليومية بسرعة وسهولة.',
-
-searchPlaceholder:
-  'ابحث عن أدوات المطورين...',
-
-searchModalTitle:
-  'البحث في Nova Dev Tools',
-
-noResultsFound:
-  'لم يتم العثور على أدوات مطابقة لبحثك.',
-
-privacyBadge:
-  'معالجة محلية 100٪',
-
-clientSideBadge:
-  'تبقى مدخلاتك داخل المتصفح',
-
-popularTools:
-  'أدوات المطورين الشائعة',
-
-allTools:
-  'دليل أدوات المطورين',
-
-launchTool:
-  'تشغيل الأداة',
-
-filterPlaceholder:
-  'تصفية الأدوات في محطة العمل...',
-
-workstationToolsCount:
-  'أداة للمطورين تعمل مباشرة داخل متصفحك.',
-
-advertisement:
-  'إعلان',
-
-cookieNotice:
-  'تستخدم Nova Dev Tools تقنيات تراعي الخصوصية وGoogle AdSense لتوفير أدوات مجانية. تتم معالجة المدخلات محلياً عندما تدعم الأداة المعالجة داخل المتصفح.',
-
-accept:
-  'موافق وإغلاق',
-
-categories: {
-  all: 'جميع الأدوات',
-  popular: 'شائعة',
-  image: 'أدوات الصور',
-  pdf: 'أدوات PDF',
-  qr: 'أدوات QR',
-  career: 'أدوات مهنية',
-  utilities: 'أدوات المطورين',
-  design: 'الويب والأكواد',
-  calculators: 'الحاسبات',
-  ai: 'أدوات الذكاء الاصطناعي',
-},
-
-workstations:
-  commonWorkstations.ar,
-
-actions:
-  baseActions.ar,
-
-toolLabels:
-  toolLabels.ar,
-
-nav: {
-  home: 'الرئيسية',
-  tools: 'الأدوات',
-  privacy: 'سياسة الخصوصية',
-  terms: 'شروط الخدمة',
-  about: 'عن Nova Dev Tools',
-  contact: 'اتصل بنا',
-  disclaimer: 'إخلاء المسؤولية',
-},
-
-footer: {
-  rights:
-    'جميع الحقوق محفوظة.',
-
-  privacyNotice:
-    'تم تصميم Nova Dev Tools بمعالجة تركز على المتصفح. عندما تعمل الأداة محلياً، تبقى المدخلات الحساسة على جهازك.',
-
-  legal:
-    'الخصوصية والثقة',
-
-  quickLinks:
-    'التنقل',
-
-  madeForWeb:
-    'صُممت للسرعة والخصوصية وإنتاجية المطورين.',
-},
-
+...baseTranslations.ar,
+actions: baseActions.ar,
+toolLabels: toolLabels.ar,
+qr: commonWorkstations.ar.qr,
+image: commonWorkstations.ar.image,
+pdf: commonWorkstations.ar.pdf,
+career: commonWorkstations.ar.career,
+utilities:
+commonWorkstations.ar.utilities,
+design:
+commonWorkstations.ar.design,
+calculators:
+commonWorkstations.ar.calculators,
+workstationsData:
+commonWorkstations.ar.utilities,
 toolTitles:
-  developerToolTitles.ar,
-
+developerToolTitles.ar,
 toolDescriptions:
-  developerToolDescriptions.ar,
-
+developerToolDescriptions.ar,
 },
 };
 
-/**
-
-* Get a localized tool name.
-  */
-  export const getLocalizedToolName = (
-  toolId: string,
-  fallbackName: string,
-  lang: Language,
-  ): string => {
-  const dictionary =
-  translations[lang] ||
-  translations.en;
+export function getLocalizedToolName(
+toolId: string,
+language: Language,
+fallback = toolId,
+): string {
+const dictionary =
+developerToolTitles[language] ||
+developerToolTitles.en;
 
 return (
-dictionary.toolTitles[toolId] ||
-fallbackName
+dictionary[toolId] ||
+developerToolTitles.en[toolId] ||
+fallback
 );
-};
+}
 
-/**
-
-* Get a localized tool description.
-  */
-  export const getLocalizedToolDesc = (
-  toolId: string,
-  fallbackDesc: string,
-  lang: Language,
-  ): string => {
-  const dictionary =
-  translations[lang] ||
-  translations.en;
+export function getLocalizedToolDesc(
+toolId: string,
+language: Language,
+fallback = '',
+): string {
+const dictionary =
+developerToolDescriptions[language] ||
+developerToolDescriptions.en;
 
 return (
-dictionary.toolDescriptions[toolId] ||
-fallbackDesc
+dictionary[toolId] ||
+developerToolDescriptions.en[toolId] ||
+fallback
 );
-};
+}
